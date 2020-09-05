@@ -31,7 +31,7 @@ static char* get_epoch_time(char* timeBuffer)
     }
     else if (timeLen == sizeof(int64_t))
     {
-        if (sprintf(timeBuffer, "%"PRIu64, (int64_t)epochTime) < 0)
+        if (sprintf(timeBuffer, "%l", (int64_t)epochTime) < 0)
         {
             LogError("Failed sprintf to timeBuffer with 8 bytes of time_t");
             result = NULL;
@@ -43,7 +43,7 @@ static char* get_epoch_time(char* timeBuffer)
     }
     else if (timeLen == sizeof(int32_t))
     {
-        if (sprintf(timeBuffer, "%"PRIu32, (int32_t)epochTime) < 0)
+        if (sprintf(timeBuffer, "%d", (int32_t)epochTime) < 0)
         {
             LogError("Failed sprintf to timeBuffer with 4 bytes of time_t");
             result = NULL;
